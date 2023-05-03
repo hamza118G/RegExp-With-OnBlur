@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+input{
+    margin-bottom: 40px;
+}
+
+</style>
+<body>
+    <form>
+        <label>First name:</label>
+        <input type="text" name="firstName" onblur="validateFirstName(this.value)" required>
+        <span id="firstNameError" class="error"></span>
+      <br>
+        <label>Last name:</label>
+        <input type="text" name="lastName" onblur="validateLastName(this.value)" required>
+        <span id="lastNameError" class="error"></span>
+      
+<br>
+
+        <label>DealerShip Name:</label>
+        <input type="text" name="DealerShipName" onblur="validateDealerShipName(this.value)" required>
+        <span id="DealerShipNameError" class="error"></span>
+
+<br>
+
+
+        <label>Email:</label>
+        <input type="email" name="email" onblur="validateEmail(this.value)" required>
+        <span id="emailError" class="error"></span>
+      <br>
+        <label>Phone:</label>
+        <input type="tel" maxlength="10" name="phone" onblur="validatePhone(this.value)" required>
+        <span id="phoneError" class="error"></span>
+      
+        <button type="submit">Submit</button>
+      </form>
+
+      
+
+      <script>
+        function validateFirstName(firstName) {
+  const regex =  /^[a-zA-Z]{1,}$/;
+  const isValid = regex.test(firstName);
+
+  if (!isValid) {
+    document.getElementById("firstNameError").innerHTML = "Please enter a valid first name.";
+  } else {
+    document.getElementById("firstNameError").innerHTML = "";
+  }
+}
+
+function validateLastName(lastName) {
+  const regex = /^[a-zA-Z]{1,}$/;
+  const isValid = regex.test(lastName);
+
+  if (!isValid) {
+    document.getElementById("lastNameError").innerHTML = "Please enter a valid last name.";
+  } else {
+    document.getElementById("lastNameError").innerHTML = "";
+  }
+}
+
+
+
+function validateDealerShipName(DealerShipName) {
+  const regex = /^[a-zA-Z]{1,}$/;
+  const isValid = regex.test(DealerShipName);
+
+  if (!isValid) {
+    document.getElementById("DealerShipNameError").innerHTML = "Please enter a valid DealerShipName name.";
+  } else {
+    document.getElementById("DealerShipNameError").innerHTML = "";
+  }
+}
+
+
+
+
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const isValid = regex.test(email);
+
+  if (!isValid) {
+    document.getElementById("emailError").innerHTML = "Please enter a valid email address.";
+  } else {
+    document.getElementById("emailError").innerHTML = "";
+  }
+}
+
+function validatePhone(phone) {
+  const regex = /^[0-9]{10}$/;
+  const isValid = regex.test(phone);
+
+  if (!isValid) {
+    document.getElementById("phoneError").innerHTML = "Please enter a valid phone number.";
+  } else {
+    document.getElementById("phoneError").innerHTML = "";
+  }
+}
+
+      </script>
+</body>
+</html>
